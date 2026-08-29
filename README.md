@@ -53,4 +53,4 @@ The creation page for both authors and books includes error handling for each in
 ![Java-Rest-Api books list page for guest](assets/JRA-books-list.png)
 
 ### Authors list page
-![Java-Rest-Api authors page for guest](assets/JRA-authos-list.png)
+![Java-Rest-Api authors page for guest](assets/JRA-authors-list.png)
