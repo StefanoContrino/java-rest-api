@@ -22,10 +22,12 @@ The creation page for both authors and books includes error handling for each in
 
 **Tools**: Git, npm, Maven, Visual Studio Code
 
-## Screenshot
+## Screenshot of the login interface
 
 ### Login page
 ![Java-Rest-Api login page](assets/JRA-login.png)
+
+## Screenshot of the Java and Spring Boot page - [Admin]
 
 ### Home page
 ![Java-Rest-Api home page](assets/JRA-home.png)
@@ -41,3 +43,14 @@ The creation page for both authors and books includes error handling for each in
 
 ### Errors handling
 ![Java-Rest-Api errors-handling](assets/JRA-errors.png)
+
+## Screenshot of the React page - [Guest]
+
+### Library page
+![Java-Rest-Api library page for guest](assets/JRA-library-guest.png)
+
+### Books list page
+![Java-Rest-Api books list page for guest](assets/JRA-books-list.png)
+
+### Authors list page
+![Java-Rest-Api authors page for guest](assets/JRA-authos-list.png)
