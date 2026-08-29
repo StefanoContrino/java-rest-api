@@ -1,0 +1,33 @@
+.card-synopsis-font-size {
+    font-size: 0.9rem;
+}
+
+.card-detail-font-size {
+    font-size: 0.8rem;
+}
+
+.card-text-color {
+    color: #940C0C;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+a.card-btn-color {
+    background-color: #940C0C;
+    border: #940C0C;
+    color: white;
+}
+
+a.card-btn-color:hover {
+    background-color: #6f0a0a;
+    border-color: #6f0a0a;
+    color: white;
+}
+
+a.available-books {
+    background-color: lightgrey;
+    border: lightgrey;
+    color: black;
+}

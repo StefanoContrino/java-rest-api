@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/show.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+    <title>Book Information</title>
+</head>
+
+
+
+<body>
+
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <div class="container col-lg-6" th:object="${book}">
+        <div class="card text-center mt-4">
+            <h1 class="card-text-color pt-4">
+                <strong>[[*{name}]] by [[*{author.getName()}]]</strong>
+            </h1>
+            <div class="card-body px-5">
+                <p class="pt-1 text-justify card-synopsis-font-size">[[*{synopsis}]]</p>
+
+                <div class="row py-5">
+                    <div class="col-8 text-start card-detail-font-size">
+                        <p class="card-text mb-0"><strong>Genre: [[*{genre}]]</strong></p>
+                        <p class="card-text mb-0"><strong>Language: [[*{language}]]</strong></p>
+                        <p class="card-text mb-0"><strong>ISBN code: [[*{ISBN}]]</strong></p>
+                        <p class="card-text mb-0"><strong>Published the [[*{publicationDate}]] by
+                                [[*{publishingHouse}]]</strong></p>
+                    </div>
+                    <div class="col-4 text-end">
+                        <p class="card-text">Price: [[*{price}]]€</p>
+                        <a href="#" class="btn card-btn-color">Rent the book</a>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-around pt-3">
+                    <a class="btn card-btn" th:href="@{/books/{id}(id=${book.id - 1})}">Previous Book</a>
+                    <form th:action="@{/books/delete/{id}(id=${book.id})}" method="post">
+                                    <button class="btn btn-danger" type="button" data-bs-toggle="modal"
+                                        th:data-bs-target="'#deleteModal' + ${book.id}">Delete</button>
+
+                                    <div class="modal fade" th:id="'deleteModal' + ${book.id}" data-bs-backdrop="static"
+                                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Are you sure
+                                                        you want to delete this book?
+                                                    </h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Please note that this action is irreversible. Once deleted, the book
+                                                    and all information associated with it will be deleted.
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                    <a class="btn card-btn" th:href="@{/books/{id}(id=${book.id + 1})}">Next Book</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

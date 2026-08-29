@@ -1,0 +1,40 @@
+<div th:fragment="navbar">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ps-3">
+
+        <a class="navbar-brand" href="#">The Italian book library without theft</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item active pe-3" th:if="${page != 'home'}">
+                    <a class="nav-link" th:href="@{/home}">Home</a>
+                </li>
+
+                <li class="nav-item active pe-3" th:if="${page != 'authors' and page != 'home'}">
+                    <a class="nav-link" th:href="@{/authors}">Authors</a>
+                </li>
+
+                <li class="nav-item active pe-3" th:if="${page != 'books' and page != 'home'}">
+                    <a class="nav-link" th:href="@{/books}">Books</a>
+                </li>
+
+                <li class="nav-item pe-3" th:if="${page == 'books' or page == 'authors'}">
+
+                    <a class="btn" th:href="${page == 'books'} ? @{/books/create} : @{/authors/create}"
+                        style="background-color: #940C0C; border: #940C0C; color: white;">
+
+                        <span th:text="${page == 'books'} ? 'Add a new book' : 'Add a new author'"></span>
+                    </a>
+
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

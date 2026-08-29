@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+    <title>Create</title>
+</head>
+
+
+
+<body>
+
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 col-lg-8 mx-auto mb-5">
+
+                <h2 class="text-center pb-4 pt-4">Create a new Book</h2>
+
+                <form id="name" th:action="@{/books/create}" th:object="${book}" method="post">
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input class="form-control" type="text" id="name" th:field="*{name}">
+                        <ul th:if="${#fields.hasErrors('name')}" class="text-danger">
+                            <li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
+                        </ul>
+
+                        <label for="ISBN">ISBN</label>
+                        <input class="form-control" type="text" id="ISBN" th:field="*{ISBN}">
+                        <ul th:if="${#fields.hasErrors('ISBN')}" class="text-danger">
+                            <li th:each="err : ${#fields.errors('ISBN')}" th:text="${err}"></li>
+                        </ul>
+
+                        <label for="author">Author</label>
+                        <select class="form-control" id="author" th:field="*{author.id}">
+                            <option value="">Select an author</option>
+                            <option th:each="author : ${authors}"
+                                    th:value="${author.id}"
+                                    th:text="${author.name}">
+                            </option>
+                        </select>
+                        <ul th:if="${#fields.hasErrors('author')}" class="text-danger">
+                            <li th:each="err : ${#fields.errors('author')}" th:text="${err}"></li>
+                        </ul>
+
+                        <label for="publishingHouse">Publishing House</label>
+                        <input class="form-control" type="text" id="publishingHouse" th:field="*{publishingHouse}">
+                        <ul th:if="${#fields.hasErrors('publishingHouse')}" class="text-danger">
+                            <li th:each="err : ${#fields.errors('publishingHouse')}" th:text="${err}"></li>
+                        </ul>
+
+                        <label for="synopsis">Synopsis</label>
+                        <textarea class="form-control" type="text" id="synopsis" th:field="*{synopsis}"></textarea>
+                        <ul th:if="${#fields.hasErrors('synopsis')}" class="text-danger">
+                            <li th:each="err : ${#fields.errors('synopsis')}" th:text="${err}"></li>
+                        </ul>
+
+                        <label for="publicationDate">Publication Date</label>
+                        <input class="form-control" type="date" id="publicationDate" th:field="*{publicationDate}">
+                        <ul th:if="${#fields.hasErrors('publicationDate')}" class="text-danger">
+                            <li th:each="err : ${#fields.errors('publicationDate')}" th:text="${err}"></li>
+                        </ul>
+
+                        <label for="genre">Genre</label>
+                        <input class="form-control" type="text" id="genre" th:field="*{genre}">
+                        <ul th:if="${#fields.hasErrors('genre')}" class="text-danger">
+                            <li th:each="err : ${#fields.errors('genre')}" th:text="${err}"></li>
+                        </ul>
+
+                        <label for="language">Language</label>
+                        <input class="form-control" type="text" id="language" th:field="*{language}">
+                        <ul th:if="${#fields.hasErrors('language')}" class="text-danger">
+                            <li th:each="err : ${#fields.errors('language')}" th:text="${err}"></li>
+                        </ul>
+
+                        <label for="price">Price</label>
+                        <input class="form-control" type="number" id="price" th:field="*{price}">
+                        <ul th:if="${#fields.hasErrors('price')}" class="text-danger">
+                            <li th:each="err : ${#fields.errors('price')}" th:text="${err}"></li>
+                        </ul>
+
+                        <div class="d-flex justify-content-between pt-3">
+                            <input type="submit" class="btn card-btn" value="Create new book">
+                            <input type="reset" class="btn btn-warning" value="Reset all fields">
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

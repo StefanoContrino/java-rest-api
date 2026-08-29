@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+    <title>Index</title>
+</head>
+
+
+
+<body>
+
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <table class="table table-hover text-center my-5">
+
+                    <thead>
+                        <tr>
+                            <th>Book name</th>
+                            <th>Book author</th>
+                            <th>Genre</th>
+                            <th>Price</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr th:each="book : ${books}">
+                            <td>
+                                <a th:text="${book.name}" th:href="@{/books/{id}(id=${book.id})}"></a>
+                            </td>
+                            <td>
+                                <a th:text="${book.author.name}" th:href="@{/authors/{id}(id=${book.author.id})}"></a>
+                            </td>
+                            <td>
+                                <span th:text="${book.genre}"></span>
+                            </td>
+                            <td>
+                                <span th:text="${book.price} + '€'"></span>
+                            </td>
+                            <td>
+                                <a class="btn btn-success ms-4" th:href="@{/books/edit/{id}(id=${book.id})}">Edit</a>
+                            </td>
+                            <td>
+                                <form th:action="@{/books/delete/{id}(id=${book.id})}" method="post">
+                                    <button class="btn btn-danger" type="button" data-bs-toggle="modal"
+                                        th:data-bs-target="'#deleteModal' + ${book.id}">Delete</button>
+
+                                    <div class="modal fade" th:id="'deleteModal' + ${book.id}" data-bs-backdrop="static"
+                                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Are you sure
+                                                        you want to delete this book?
+                                                    </h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Please note that this action is irreversible. Once deleted, the book
+                                                    and all information associated with it will be deleted.
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

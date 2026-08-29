@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lexend Variable', sans-serif;
+}
+
+a.card-btn {
+  text-align: justify;
+  background-color: #940C0C;
+  border-color: #940C0C;
+  color: white;
+
+}
+
+a.card-btn:hover {
+  background-color: #6f0a0a;
+  border-color: #6f0a0a;
+  color: white;
+}
+
+.card-img-style {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+}

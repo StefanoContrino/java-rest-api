@@ -1,0 +1,23 @@
+body {
+    font-family: 'Lexend', sans-serif;
+}
+
+.card-btn {
+    text-align: justify;
+    background-color: #940C0C;
+    border: #940C0C;
+    color: white;
+
+}
+
+.card-btn:hover {
+    background-color: #6f0a0a;
+    border-color: #6f0a0a;
+    color: white;
+}
+
+.card-img-style {
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/show.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+    <title>Home</title>
+</head>
+
+
+
+<body>
+
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <div class="container col-lg-6" th:object="${book}">
+        <div class="card text-center mt-4">
+            <h1 class="card-text-color pt-4">
+                <strong>Welcome to our library</strong>
+            </h1>
+            <div class="card-body px-5">
+                <p class="pt-1 text-justify card-synopsis-font-size">We have many of the most popular and enjoyable
+                    books from the world's best authors. For any inquiries, you can contact us through the channels
+                    found in the "Contacts" section.</p>
+
+                <div class="d-flex justify-content-around">
+                    <a th:href="@{/books}" class="btn"
+                        style="background-color: #940C0C; border: #940C0C; color: white;">Books</a>
+                    <a th:href="@{/authors}" class="btn"
+                        style="background-color: #940C0C; border: #940C0C; color: white;">Authors</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
