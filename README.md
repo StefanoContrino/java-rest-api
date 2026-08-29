@@ -44,6 +44,9 @@ The creation page for both authors and books includes error handling for each in
 ### Errors handling
 ![Java-Rest-Api errors-handling](assets/JRA-errors.png)
 
+### Warning text
+![Java-Rest-Api warning-text](assets/JRA-warning-text.png)
+
 ## Screenshot of the React page - [Guest]
 
 ### Library page
