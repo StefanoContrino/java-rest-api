@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 function Navbar() {
 
     return (
@@ -14,16 +16,20 @@ function Navbar() {
 
                     <ul className="navbar-nav ms-auto">
 
-                        <li className="nav-item active pe-3">
-                            <a href="#" className="nav-link">Home</a>
+                        <li className="nav-item pe-3">
+                            <NavLink to={`/`} className="nav-link">Home</NavLink>
                         </li>
 
-                        <li className="nav-item active pe-3">
-                            <a href="#" className="nav-link">Authos</a>
+                        <li className="nav-item pe-3">
+                            <NavLink to={`/library`} className="nav-link">Library</NavLink>
                         </li>
 
-                        <li className="nav-item active pe-3">
-                            <a href="#" className="nav-link">Books</a>
+                        <li className="nav-item pe-3">
+                            <NavLink to={`/authors-list`} className="nav-link">Authors</NavLink>
+                        </li>
+
+                        <li className="nav-item pe-3">
+                            <NavLink to={`/books-list`} className="nav-link">Books</NavLink>
                         </li>
 
                     </ul>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { getBooks } from "../../api/library";
-import '../css/BookDetailPage.css';
+import '../css/DetailPage.css';
 
 function BookDetailPage() {
 
@@ -33,13 +33,7 @@ function BookDetailPage() {
 
     return <>
 
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-        <title>Index</title>
+        <title>Book Detail Page</title>
 
         <div className="container col-lg-6">
             <div className="card text-center mt-4">

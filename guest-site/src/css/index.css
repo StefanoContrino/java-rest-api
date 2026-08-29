@@ -24,3 +24,19 @@ a.card-btn:hover {
   height: 250px;
   object-fit: contain;
 }
+
+a.navlink-btn {
+  background-color: #940C0C;
+  border: #940C0C;
+  color: white;
+}
+
+a.library-link {
+  color: #940C0C;
+  text-decoration: none;
+}
+
+td {
+  vertical-align: middle;
+  text-align: center;
+}
