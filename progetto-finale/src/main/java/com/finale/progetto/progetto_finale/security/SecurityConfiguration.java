@@ -32,8 +32,6 @@ public class SecurityConfiguration {
                 .headers(headers -> headers
                         .frameOptions(frame -> frame.sameOrigin()))
 
-                // 3. Autorizzazioni
-                // 3. Autorizzazioni
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/api/login").permitAll()
@@ -41,13 +39,8 @@ public class SecurityConfiguration {
                         // PERMETTI A TUTTI DI LEGGERE LA NUOVA API LIBRARY
                         .requestMatchers("/api/library", "/api/library/**").permitAll()
 
-                        // SOLO ADMIN PUÒ MODIFICARE (Aggiornato per il nuovo percorso)
-                        // Nota: Se i tuoi endpoint di modifica sono sempre sotto /books/edit, lascia
-                        // pure quelli.
-                        // Se li hai spostati sotto /api/library, usa la riga commented qui sotto.
+                        // SOLO ADMIN PUÒ MODIFICARE
                         .requestMatchers("/books/edit", "/books/edit/**").hasAuthority("ADMIN")
-                        // .requestMatchers("/api/library/edit",
-                        // "/api/library/edit/**").hasAuthority("ADMIN")
 
                         .requestMatchers(HttpMethod.POST, "/api/library/**").hasAuthority("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/library/**").hasAuthority("ADMIN")
@@ -60,10 +53,7 @@ public class SecurityConfiguration {
                 .formLogin(form -> form
                         .loginProcessingUrl("/api/login")
                         .successHandler((request, response, authentication) -> {
-                            // --- MODIFICA CHIAVE ---
-                            // Crea esplicitamente la sessione HTTP e salva l'autenticazione.
-                            // Questo garantisce che il cookie JSESSIONID venga generato e inviato al
-                            // browser.
+
                             request.getSession(true);
 
                             boolean isAdmin = authentication.getAuthorities().stream()
