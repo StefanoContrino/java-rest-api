@@ -2,19 +2,17 @@ DELETE FROM role_user;
 DELETE FROM users;
 DELETE FROM roles;
 
--- 1. Ruoli
-INSERT INTO roles (name) VALUES ('USER');
-INSERT INTO roles (name) VALUES ('ADMIN');
+-- 1. Ruoli (ID 1 = USER, ID 2 = ADMIN)
+INSERT INTO roles (id, name) VALUES (1, 'USER');
+INSERT INTO roles (id, name) VALUES (2, 'ADMIN');
 
--- 2. Utenti
--- ID 1: Admin
-INSERT INTO users (username, password) VALUES ('Admin', '{bcrypt}$2a$10$9li1.5VQ7b.wAkRklPdu0e0Lopu8FJzDJuaOGU0/Evrr0QuU6nDGG');
--- ID 2: User
-INSERT INTO users (username, password) VALUES ('User', '{bcrypt}$2a$10$PlcjpcQeC35dsDWMW3yxYuQ05vQgQ4cH4CiZXq6VFi5.JTHKhnlGe');
+-- 2. Utenti (Password per entrambi: "admin" per Admin e "user" per User, oppure testali)
+INSERT INTO users (id, username, password) VALUES (1, 'admin', '{bcrypt}$2a$10$9li1.5VQ7b.wAkRklPdu0e0Lopu8FJzDJuaOGU0/Evrr0QuU6nDGG');
+INSERT INTO users (id, username, password) VALUES (2, 'user', '{bcrypt}$2a$10$PlcjpcQeC35dsDWMW3yxYuQ05vQgQ4cH4CiZXq6VFi5.JTHKhnlGe');
 
-INSERT INTO role_user (user_id, role_id) VALUES (1, 1);
+-- Assign ADMIN (2) ad Admin (1)
 INSERT INTO role_user (user_id, role_id) VALUES (1, 2);
-
+-- Assign USER (1) a User (2)
 INSERT INTO role_user (user_id, role_id) VALUES (2, 1);
 
 -- =========================

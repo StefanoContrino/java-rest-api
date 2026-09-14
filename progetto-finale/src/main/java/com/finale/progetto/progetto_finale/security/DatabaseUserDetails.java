@@ -59,4 +59,9 @@ public class DatabaseUserDetails implements UserDetails {
         return true;
     }
 
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
 }
