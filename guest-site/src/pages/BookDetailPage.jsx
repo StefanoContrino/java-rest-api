@@ -53,7 +53,6 @@ function BookDetailPage() {
                     </div>
                     <div className="col-4 text-end">
                         <p className="card-text">Price: {book.price}€</p>
-                        <a href="#" className="card-btn-color btn">Rent the book</a>
                     </div>
                 </div>
 

@@ -49,7 +49,7 @@ function Login() {
 
     return (
         <div style={{ maxWidth: '400px', margin: '50px auto', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
-            <h2>Accedi al Sito</h2>
+            <h2>Login page</h2>
             <form onSubmit={handleLogin}>
                 <div style={{ marginBottom: '15px' }}>
                     <label>Username:</label><br />
@@ -60,7 +60,7 @@ function Login() {
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} style={{ width: '100%', padding: '8px', marginTop: '5px' }} required />
                 </div>
                 {errore && <p style={{ color: 'red' }}>{errore}</p>}
-                <button type="submit" style={{ width: '100%', padding: '10px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Accedi</button>
+                <button type="submit" style={{ width: '100%', padding: '10px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>Access</button>
             </form>
         </div>
     );
